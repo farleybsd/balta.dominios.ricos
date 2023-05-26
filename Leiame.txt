@@ -5,7 +5,7 @@ Comece Criando as pastas Depois Solucao :
 2. PaymentContext.Shared
 3. PaymentContext.Tests
 4. dotnet new sln
-
+_______________________________________________________________________________________________________________________________________
 Criando Projetos :
 
 1. PaymentContext.Domanin
@@ -28,11 +28,11 @@ dotnet sln add PaymentContext.Shared\PaymentContext.Shared.csproj
 
 3. PaymentContext.Tests
 dotnet sln add PaymentContext.Tests\PaymentContext.Tests.csproj
-
+______________________________________________________________________________________________________________________________________
 Restaurando os pacotes /build
 dotnet restore 
 dotnet build
-
+______________________________________________________________________________________________________________________________________
 Adicionando referencia do shared no domain
 
 1. PaymentContext.Domanin
@@ -42,3 +42,8 @@ Adicionando reference do Domain/Share no teste
 3. PaymentContext.Tests
 PaymentContext\PaymentContext.Tests>dotnet add reference ..\PaymentContext.Domanin\PaymentContext.Domanin.csproj
 PaymentContext\PaymentContext.Tests>dotnet add reference ..\PaymentContext.Shared\PaymentContext.Shared.csproj
+____________________________________________________________________________________________________________________________________
+
+Comece pelo 1. PaymentContext.Domanin :
+
+1.1  Entidades
