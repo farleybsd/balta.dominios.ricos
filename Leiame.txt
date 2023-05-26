@@ -1,0 +1,44 @@
+Comece Criando as pastas Depois Solucao :
+
+0. PaymentContext (Dentro desas Criar as Demais Abaixo)
+1. PaymentContext.Domanin
+2. PaymentContext.Shared
+3. PaymentContext.Tests
+4. dotnet new sln
+
+Criando Projetos :
+
+1. PaymentContext.Domanin
+dotnet new classlib
+
+2. PaymentContext.Shared
+dotnet new classlib
+
+3. PaymentContext.Tests
+dotnet new mstest
+
+Adicionando os Projetos as Solucoes estar na pasta(0. PaymentContext)
+
+1. PaymentContext.Domanin
+dotnet sln add PaymentContext.Domanin\PaymentContext.Domanin.csproj
+
+2. PaymentContext.Shared
+dotnet sln add PaymentContext.Shared\PaymentContext.Shared.csproj
+
+
+3. PaymentContext.Tests
+dotnet sln add PaymentContext.Tests\PaymentContext.Tests.csproj
+
+Restaurando os pacotes /build
+dotnet restore 
+dotnet build
+
+Adicionando referencia do shared no domain
+
+1. PaymentContext.Domanin
+PaymentContext.Domanin>dotnet add reference ..\PaymentContext.Shared\PaymentContext.Shared.csproj
+
+Adicionando reference do Domain/Share no teste
+3. PaymentContext.Tests
+PaymentContext\PaymentContext.Tests>dotnet add reference ..\PaymentContext.Domanin\PaymentContext.Domanin.csproj
+PaymentContext\PaymentContext.Tests>dotnet add reference ..\PaymentContext.Shared\PaymentContext.Shared.csproj
