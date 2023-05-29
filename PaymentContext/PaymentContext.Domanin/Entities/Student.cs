@@ -12,6 +12,8 @@ namespace PaymentContext.Domanin.Entities
             Document = document;
             Email = email;
             _subScriptions= new List<SubScription>();
+
+           AddNotifications(name,document,email);
         }
 
         public Name Name { get; private set; }
