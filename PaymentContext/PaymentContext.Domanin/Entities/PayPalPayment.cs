@@ -1,4 +1,6 @@
-﻿namespace PaymentContext.Domanin.Entities
+﻿using PaymentContext.Domanin.ValueObjects;
+
+namespace PaymentContext.Domanin.Entities
 {
     public class PayPalPayment : Payment
     {
@@ -8,10 +10,10 @@
             decimal total, 
             decimal totalPaid, 
             string owner,
-            string payer, 
-            string document,
-            string address,
-            string email)
+            string payer,
+            Document document,
+            Address address,
+            Email email)
             : base(paiDate, expireDate, total, totalPaid, owner, payer, document, address, email)
         {
             TransactionCode = transactionCode;

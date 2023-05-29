@@ -1,4 +1,6 @@
-﻿namespace PaymentContext.Domanin.Entities
+﻿using PaymentContext.Domanin.ValueObjects;
+
+namespace PaymentContext.Domanin.Entities
 {
     public class BoletoPayment : Payment
     {
@@ -8,9 +10,9 @@
             decimal totalPaid,
             string owner,
             string payer,
-            string document,
-            string address,
-            string email)
+            Document document,
+            Address address,
+            Email email)
             : base(paiDate, expireDate, total, totalPaid, owner, payer, document, address, email)
         {
             BarCode = barCode;
