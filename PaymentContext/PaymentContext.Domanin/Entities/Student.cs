@@ -1,4 +1,5 @@
-﻿using PaymentContext.Domanin.ValueObjects;
+﻿using Flunt.Validations;
+using PaymentContext.Domanin.ValueObjects;
 using PaymentContext.Shared.Entities;
 
 namespace PaymentContext.Domanin.Entities
@@ -24,13 +25,18 @@ namespace PaymentContext.Domanin.Entities
 
         public void AddSubScription(SubScription subScription)
         {
-            // Todo:
-            // Se ja tiver uma assinatura ativa,cancela
-            // Cancelar todas as assinaturas e colocar essa como principal
-            foreach (var sub in SubScriptions)
-                sub.Inactivate();
-            
-            _subScriptions.Add(subScription);
+            var hasSubscriptionActive = false;
+
+            foreach (var sub in _subScriptions)
+            {
+                if(sub.Active)
+                   hasSubscriptionActive = true;
+            }
+
+            AddNotifications(new Contract()
+                .Requires()
+                .IsFalse(hasSubscriptionActive, "Student.subScriptions","Voce ja tem uma assinatura ativa")
+                .AreEquals(0,subScription.Payments.Count, "Student.subScriptions.Payments","Essa Assinatura nao possui pagamento"));
         }
     }
 }
